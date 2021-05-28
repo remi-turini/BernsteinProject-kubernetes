@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      volumes:
+        - name: vol
+          hostPath:
+            path: /var/lib/postgresql/data
+      containers:
+      - name: postgres
+        image: postgres:12
+        ports:
+        - containerPort: 5432
+      restartPolicy: Always
