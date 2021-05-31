@@ -15,11 +15,20 @@ spec:
     spec:
       volumes:
         - name: vol
-          hostPath:
-            path: /var/lib/postgresql/data
+          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: myClaim
       containers:
       - name: postgres
         image: postgres:12
         ports:
         - containerPort: 5432
+        volumeMounts: 
+        - mountPath: /var/lib/postgresql/data
+          name: vol
+        envFrom:
+        - configMapRef:
+            name: postgres-configmap
+        - secretRef:
+            name: postgres-secret
       restartPolicy: Always

@@ -1,0 +1,1 @@
+echo “CREATE TABLE votes (id text PRIMARY KEY, vote text NOT NULL);” | kubectl exec -i postgres-deployment-7dd8576d4d-b49ws -c postgres - psql
