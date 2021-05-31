@@ -12,5 +12,5 @@ spec:
             name: result
             port:
               number: 80
-        path: /result
+        path: /
         pathType: Prefix

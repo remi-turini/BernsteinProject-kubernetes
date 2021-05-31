@@ -17,3 +17,7 @@ spec:
         image: google/cadvisor:latest
         ports:
             containerPort: 8080
+      volumes:
+      - name: rootfs
+        hostPath:
+          path: /

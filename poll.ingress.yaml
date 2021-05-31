@@ -12,5 +12,5 @@ spec:
             name: poll
             port:
               number: 80
-        path: /poll
+        path: /
         pathType: Prefix
